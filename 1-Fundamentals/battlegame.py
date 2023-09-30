@@ -1,4 +1,12 @@
-wizard = "Wizard"
+"""
+Workshop 1
+By Shosuke Doi
+Date 9/30/2023
+"""
+
+import sys
+
+wizard = "WIZARD"
 elf = "ELF"
 human = "HUMAN"
 
@@ -13,10 +21,13 @@ human_damage = 20
 dragon_hp = 300
 drgon_damage = 50
 
+
+def exitProgram():
+    sys.exit()
+
+
 while True:
-    print("1) Wizard")
-    print("2) Elf")
-    print("3) Human")
+    print("1) Wizard\n2) Elf\n3) Human")
     userInput = input("Choose your character: ")
 
     if userInput == "1":
@@ -37,7 +48,7 @@ while True:
 
     print("Unknown character")
 
-print("Character: " + character)
+print(f"Character {character}")
 print("My HP:", my_hp)
 print("My Damage:", my_damage, "\n")
 
@@ -45,9 +56,11 @@ while True:
     dragon_hp = dragon_hp - my_damage
     print("The", character, "damaged the Dragon!")
     print("The Dragon's hitpoints are now", dragon_hp, "\n")
+
     if dragon_hp <= 0:
         print("The Dragon has lost the battle")
-        break
+        exitProgram()
+        # break
 
     print("The Dragon strikes back at", character)
     my_hp = my_hp - drgon_damage
@@ -55,4 +68,5 @@ while True:
 
     if my_hp <= 0:
         print("The", character, "has lost the battle")
-        break
+        exitProgram()
+        # break
